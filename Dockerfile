@@ -9,10 +9,10 @@ RUN cargo build --release
 
 FROM debian:unstable-slim
 
-RUN apt update && apt install -y pkg-config libssl-dev
+RUN apt update && apt install -y pkg-config libssl-dev curl
 
 WORKDIR /app
 
 COPY --from=build /app/target/release/dpqr .
-COPY --from=build /app/www .
+COPY --from=build /app/www www
 CMD ["./dpqr"]
