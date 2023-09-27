@@ -2,7 +2,7 @@ use reqwest::{Client, Response, Result};
 use std::collections::HashMap;
 use std::env;
 
-const VK_V: &'static str = "5.131";
+const VK_V: &'static str = "5.150";
 
 pub async fn send_pass_to_vk(pass: &str) -> Result<Response> {
     let token = env::var("VK_TOKEN").expect("Token not found");
