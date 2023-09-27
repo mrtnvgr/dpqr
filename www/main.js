@@ -12,6 +12,9 @@ function submit() {
 
     submit_button.disabled = true;
 
+    const old_button_text = submit_button.textContent;
+    submit_button.textContent = "Подождите...";
+
     const inputs = document.getElementsByTagName("input");
     
     let values = [];
@@ -39,14 +42,15 @@ function submit() {
                 document.querySelector("div#results").classList.remove("hidden");
                 localStorage.setItem("pass", pass);
             });
+
             submit_button.disabled = false;
+            submit_button.textContent = old_button_text;
         } else {
-            const old_button_text = submit_button.textContent;
             submit_button.classList.toggle("error");
 
             submit_button.textContent = "Неправильный ответ";
             setTimeout(function() {
-                submit_button.textContent = old_button_text
+                submit_button.textContent = old_button_text;
                 submit_button.classList.toggle("error");
                 submit_button.disabled = false;
             }, 2000);
