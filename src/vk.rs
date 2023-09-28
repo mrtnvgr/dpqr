@@ -11,7 +11,7 @@ pub async fn send_pass_to_vk(pass: &str) -> Result<Response> {
     let client = Client::new();
     let url = "https://api.vk.com/method/messages.send";
 
-    let message = format!("[Ещё один прошедший, код: {pass}]");
+    let message = format!("🤖 Код: {pass}");
 
     let mut params = HashMap::new();
     params.insert("access_token", token.as_str());
