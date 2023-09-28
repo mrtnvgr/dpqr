@@ -50,7 +50,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .service(submit)
-            .service(Files::new("/", "www").show_files_listing())
+            .service(Files::new("/", "www"))
     })
     .bind(("0.0.0.0", 8080))?
     .run()
