@@ -26,7 +26,7 @@ function submit() {
             value = "";
         }
 
-        values.push(value.toLowerCase());
+        values.push(value.toLowerCase().trim());
     }
 
     const host = window.location.host;
